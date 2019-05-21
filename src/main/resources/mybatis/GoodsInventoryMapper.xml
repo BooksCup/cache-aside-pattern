@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bc.cache.mapper.GoodsInventoryMapper">
+ 	
+  	<update id="updateGoodsInventory" parameterType="com.bc.cache.entity.GoodsInventory">
+		update t_goods_inventory
+			set goods_inventory_count = #{inventoryCount}
+				where goods_id = #{goodsId}
+  	</update>
+  	 
+  	<select id="findGoodsInventory" resultType="com.bc.cache.entity.GoodsInventory">
+  		select goods_id as "goodsId",
+  			   goods_inventory_count as "inventoryCount"
+  			from t_goods_inventory
+  				where goods_id = #{goodsId}
+  	</select>
+ 
+</mapper>
